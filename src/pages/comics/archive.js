@@ -22,7 +22,6 @@ export default class AboutPage extends React.Component {
                     }
                     `}
                     render={data=>{
-                        console.log(data)
                         return (
   <Layout>
     <SEO title="Comics Archive | Chris D Clemens" />

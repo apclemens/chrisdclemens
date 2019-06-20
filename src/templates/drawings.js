@@ -7,7 +7,6 @@ import Gallery from "./../components/gallery"
 import "./../styles/drawings.scss"
 
 export default (props) => {
-    console.log(props.pageContext)
     return (
             <Layout>
                 <Gallery

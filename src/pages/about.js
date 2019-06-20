@@ -32,7 +32,6 @@ export default class AboutPage extends React.Component {
                     }
                     `}
                     render={data=>{
-                        console.log(data)
                         return (
   <Layout>
     <SEO title="About | Chris D Clemens" />

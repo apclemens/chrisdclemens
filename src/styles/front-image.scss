@@ -41,3 +41,19 @@
         }
     }
 }
+
+@media only screen and (max-width: 872px) {
+     #front-links {
+         width: 75vw;
+
+         .front-image {
+             width: 32.5vw;
+             height: 32.5vw;
+             margin: 2vw;
+
+             .title {
+                 font-size: 3vw;
+             }
+         }
+     }
+ }
