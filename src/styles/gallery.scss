@@ -1,0 +1,117 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &.overlaid {
+        z-index: 10;
+    }
+
+    .gallery-image {
+        display: inline-block;
+        z-index: 0;
+        position: relative;
+        overflow: hidden;
+
+        .gatsby-image-wrapper {
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .info {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            padding:10px;
+            background-color: rgba(0,0,0,.5);
+            color: white;
+            transform: translateY(100%);
+            transition: transform .1s linear;
+        }
+
+        &:hover .info {
+            transform: translateY(0);
+        }
+    }
+
+    #overlay {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.5);
+
+        &.invisible {
+            display: none;
+        }
+
+        #image {
+            position: absolute !important;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 2.5%;
+
+            .gatsby-image-wrapper {
+                position: static !important;
+                object-fit: contain;
+
+                img {
+                    object-fit: contain !important;
+                }
+            }
+        }
+
+        #prev, #next {
+            position: absolute;
+            top: 50%;
+            font-size: 300%;
+            background-color: rgba(255, 255 ,255, .5);
+            padding: 0 25px;
+            cursor: pointer;
+            user-select: none;
+            height: 70px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #prev {
+            left: 1.5%;
+        }
+
+        #next {
+            right: 1.5%;
+        }
+
+        .close {
+            position: fixed;
+            top: 0%;
+            right: 0%;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 300%;
+            color: white;
+        }
+
+        .info {
+            bottom: 0;
+            position: fixed;
+            padding: 10px 125px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, .5);
+        }
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .gallery-image {
+        width: 100% !important;
+    }
+}

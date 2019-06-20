@@ -1,0 +1,38 @@
+.commissioned {
+    h2 {
+        text-align: center;
+    }
+
+    .gatsby-image-wrapper {
+        margin: auto;
+        max-width: 75%;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .center {
+        button {
+            border: none;
+            background-color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            color: black;
+            margin: 3px;
+            padding: 3px 6px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: black;
+                color: white;
+            }
+
+            &.active {
+                background-color: red;
+            }
+        }
+    }
+}

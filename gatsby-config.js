@@ -6,15 +6,47 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`, `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+          name: `content`,
+          path: `${__dirname}/content`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    {
+        resolve: `gatsby-source-google-sheets`,
+        options: {
+            spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
+            worksheetTitle: 'about',
+            credentials: require('./google-credentials.json'),
+        },
+    },
+    {
+        resolve: `gatsby-source-google-sheets`,
+        options: {
+            spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
+            worksheetTitle: 'comics',
+            credentials: require('./google-credentials.json'),
+        },
+    },
+    {
+        resolve: `gatsby-source-google-sheets`,
+        options: {
+            spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
+            worksheetTitle: 'drawings',
+            credentials: require('./google-credentials.json'),
+        },
+    },
+    {
+        resolve: `gatsby-source-google-sheets`,
+        options: {
+            spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
+            worksheetTitle: 'commissioned',
+            credentials: require('./google-credentials.json'),
+        },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

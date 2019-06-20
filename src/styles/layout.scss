@@ -1,0 +1,26 @@
+.content {
+    width: 800px;
+    margin: auto;
+    border-top: none;
+    background: #C5CAE9;
+    padding:20px;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 25px 25px;
+    padding-top: 50px;
+}
+
+.layout-links {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+    a {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid black;
+        color: black;
+        background: white;
+        text-decoration: none;
+    }
+}

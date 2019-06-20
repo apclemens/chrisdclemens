@@ -1,0 +1,46 @@
+.commissioned-link {
+    width: 75%;
+    display: block;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px auto;
+    background: white;
+    position: relative;
+
+    .gatsby-image-wrapper {
+        width: 50%;
+    }
+
+    span {
+        width: 50%;
+        display: block;
+        right: 0;
+        position: absolute;
+        color: black;
+        font-weight: bold;
+        font-size: 200%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        background: black;
+
+        span {
+            color: white;
+        }
+    }
+}
+
+.commissioned-list {
+    a:nth-child(even) {
+        span {
+            left: 0;
+        }
+
+        .gatsby-image-wrapper {
+            transform: translateX(100%);
+        }
+    }
+}

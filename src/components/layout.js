@@ -7,46 +7,53 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
+import FrontLink from "./../components/front-link"
 
-import Header from "./header"
-import "./layout.css"
+import "./../styles/layout.scss"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+export default ({ children }) => (
+                <StaticQuery
+                query={graphql`
+                    query {
+                        allFile(filter: {relativeDirectory: {eq: "front"}}) {
+                            edges {
+                                node {
+                                    relativePath
+                                    childImageSharp {
+                                        fluid(maxHeight: 300, maxWidth: 300) {
+                                            ...GatsbyImageSharpFluid
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `}
+                render={data => {
 
-  return (
+                    return (
+
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        <header>
+            <Link to="/">
+                <h1>Chris Clemens</h1>
+            </Link>
+        </header>
+
+        <div className="layout-links">
+            <Link to="/about">About</Link>
+            <Link to="/commissioned">Commissioned Work</Link>
+            <Link to="/comics">Comics</Link>
+            <Link to="/drawings">Drawings</Link>
+        </div>
+
+        <div className="content">
+            {children}
+        </div>
     </>
-  )
-}
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+                           )
+                }}
+                />
+               )
