@@ -47,8 +47,8 @@
          width: 75vw;
 
          .front-image {
-             width: 32.5vw;
-             height: 32.5vw;
+             width: calc(32.5vw - 4px);
+             height: calc(32.5vw - 4px);
              margin: 2vw;
 
              .title {

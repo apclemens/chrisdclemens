@@ -29,4 +29,10 @@
     .content {
         width: calc(100% - 44px);
     }
+
+    .layout-links {
+        a {
+            margin: .5vw;
+        }
+    }
 }
