@@ -4,9 +4,10 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import FrontLink from "../components/front-link"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
+import BodyClassName from "react-body-classname"
 
-import "./../styles/front.scss"
 import "./../styles/global.scss"
+import "./../styles/front.scss"
 
 export default class IndexPage extends React.Component {
     render() {
@@ -32,6 +33,7 @@ export default class IndexPage extends React.Component {
 
                     return (
 
+        <BodyClassName className="front">
         <>
         <header>
         <Link to="/">
@@ -66,6 +68,7 @@ export default class IndexPage extends React.Component {
         </div>
 
         </>
+        </BodyClassName>
 
                            )
                 }}
