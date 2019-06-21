@@ -37,18 +37,26 @@ export default ({ children }) => (
     <>
         <header>
             <Link to="/">
-                <h1>Chris Clemens</h1>
+                Chris Clemens
             </Link>
         </header>
 
-        <div className="layout-links">
-            <Link to="/about">About</Link>
-            <Link to="/commissioned">Commissioned Work</Link>
-            <Link to="/comics">Comics</Link>
-            <Link to="/drawings">Drawings</Link>
-        </div>
-
         <div className="content">
+            <div className="layout-links">
+                <Link to="/about">
+                    <div>About</div>
+                </Link>
+                <Link to="/commissioned">
+                    <div>Commissioned Work</div>
+                </Link>
+                <Link to="/comics">
+                    <div>Comics</div>
+                </Link>
+                <Link to="/drawings">
+                    <div>Drawings</div>
+                </Link>
+            </div>
+
             {children}
         </div>
     </>

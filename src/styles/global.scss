@@ -10,20 +10,19 @@ body {
 header {
     background-color: #3949AB;
     padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid black;
+    text-align: center;
 
     a {
         text-decoration: none;
+        margin: 0;
+        color: white;
+        text-decoration: none;
+        font-size: 300%;
+        font-weight: bold;
 
-        h1 {
-            text-align: center;
-            border-bottom: 3px solid black;
-            margin: 0;
-            color: white;
-            text-decoration: none;
-            font-size: 300%;
-            padding-bottom: 20px;
-        }
-        #front-title {
+        &#front-title {
             font-size: 600%;
         }
     }

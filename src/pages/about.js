@@ -22,7 +22,7 @@ export default class AboutPage extends React.Component {
           edges {
                     node {
                                 childImageSharp {
-                                        fluid(maxWidth: 400) {
+                                        fluid(maxWidth: 800) {
                                             ...GatsbyImageSharpFluid
                                         }
                                                           }
@@ -37,12 +37,12 @@ export default class AboutPage extends React.Component {
     <SEO title="About | Chris D Clemens" />
     
     <Img
-        className="about-image"
+        className="about-image image-1"
         fluid={data.allFile.edges[1].node.childImageSharp.fluid}
     />
     {data.allGoogleSheetAboutRow.nodes[0].text}
     <Img
-        className="about-image"
+        className="about-image image-2"
         fluid={data.allFile.edges[0].node.childImageSharp.fluid}
     />
 

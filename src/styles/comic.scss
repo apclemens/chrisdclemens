@@ -56,3 +56,11 @@
         width: 100% !important;
     }
 }
+
+@media only screen and (max-width: 507px) {
+    .comic-nav-group {
+        .comic-nav {
+            font-size: 3vw !important;
+        }
+    }
+}

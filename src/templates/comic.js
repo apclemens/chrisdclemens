@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "./../components/layout"
+import SEO from "./../components/seo"
 import Img from "gatsby-image"
 
 import "./../styles/comic.scss"
@@ -8,6 +9,7 @@ import "./../styles/comic.scss"
 export default (props) => {
     return (
             <Layout>
+    <SEO title={props.pageContext.title + " | Comics | Chris D Clemens"} />
             <div className="comic-wrapper">
                 <h2>{props.pageContext.title}</h2>
     <div className="comic-nav-group">

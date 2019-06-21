@@ -35,9 +35,10 @@ export default class IndexPage extends React.Component {
 
         <BodyClassName className="front">
         <>
+    <SEO title="Chris D Clemens" />
         <header>
-        <Link to="/">
-        <h1 id="front-title">Chris Clemens</h1>
+        <Link id="front-title" to="/">
+        Chris Clemens
         </Link>
         </header>
 
