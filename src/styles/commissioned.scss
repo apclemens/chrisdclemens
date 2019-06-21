@@ -36,3 +36,11 @@
         }
     }
 }
+
+@media only screen and (max-width: 872px) {
+    .commissioned {
+        .gatsby-image-wrapper {
+            max-width: 95%;
+        }
+    }
+}
