@@ -23,6 +23,10 @@
         color: black;
         background: white;
         text-decoration: none;
+
+        &:hover {
+            background: #d5d5d5;
+        }
     }
 }
 
