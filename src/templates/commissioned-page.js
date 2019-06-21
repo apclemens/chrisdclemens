@@ -48,9 +48,7 @@ export default class Commissioned extends React.Component {
                         <h2>
                             {this.props.pageContext.title}
                         </h2>
-                        <p>
-                            {this.props.pageContext.text}
-                        </p>
+                        <p dangerouslySetInnerHTML={{__html: this.props.pageContext.text}} />
                         {
                             this.props.pageContext.fluid.map(
                                 (f, index) =>

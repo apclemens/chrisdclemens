@@ -33,6 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
               url
               files
               text
+              layout
           }
       }
   }
@@ -85,7 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allGoogleSheetCommissionedRow.edges.forEach(({node}, index) => {
             createPage({
                 path: '/commissioned/' + node.url,
-                component: path.resolve(`./src/templates/commissioned.js`),
+                component: path.resolve(`./src/templates/commissioned-${node.layout}.js`),
                 context: {
                     title: node.title,
                     files: node.files,
