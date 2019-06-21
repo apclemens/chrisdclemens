@@ -7,11 +7,11 @@ import "./../styles/front-image.scss"
 
 const FrontLink = props => {
     return (
-    <Link to={props.link} className="front-image">
-        <Img fluid={props.image.node.childImageSharp.fluid} />
-        <span className="title">{props.text}</span>
-    </Link>
-)
+        <Link to={props.link} className="front-image">
+            <Img fluid={props.image} />
+            <span className="title">{props.text}</span>
+        </Link>
+    )
 }
 
 export default FrontLink

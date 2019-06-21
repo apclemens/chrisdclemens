@@ -46,25 +46,25 @@ export default class IndexPage extends React.Component {
         <FrontLink
             link="/about"
             text="About"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg")}
+            image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg").node.childImageSharp.fluid}
         />
 
         <FrontLink
             link="/commissioned"
             text="Commissioned Work"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/other.png")}
+            image={data.allFile.edges.find(({node}) => node.relativePath === "front/other.png").node.childImageSharp.fluid}
         />
 
         <FrontLink
             link="/comics"
             text="Comics"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/comics.png")}
+            image={data.allFile.edges.find(({node}) => node.relativePath === "front/comics.png").node.childImageSharp.fluid}
         />
 
         <FrontLink
             link="/drawings"
             text="Drawings"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/drawings.jpg")}
+            image={data.allFile.edges.find(({node}) => node.relativePath === "front/drawings.jpg").node.childImageSharp.fluid}
         />
         </div>
 
