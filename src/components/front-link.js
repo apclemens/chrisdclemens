@@ -7,7 +7,7 @@ import "./../styles/front-image.scss"
 
 const FrontLink = props => {
     return (
-        <Link to={props.link} className="front-image">
+        <Link to={props.link} className={"front-image "+(props.className?props.className:'')}>
             <Img fluid={props.image} />
             <span className="title">{props.text}</span>
         </Link>

@@ -43,29 +43,36 @@ export default class IndexPage extends React.Component {
         </header>
 
         <div id="front-links">
-        <FrontLink
-            link="/about"
-            text="About"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg").node.childImageSharp.fluid}
-        />
+		<FrontLink
+		    link="/commissioned"
+		    text="Commissioned Work"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/other.png").node.childImageSharp.fluid}
+		/>
 
-        <FrontLink
-            link="/commissioned"
-            text="Commissioned Work"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/other.png").node.childImageSharp.fluid}
-        />
+		<FrontLink
+		    link="/original"
+		    text="Original Articles"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/original.png").node.childImageSharp.fluid}
+		/>
 
-        <FrontLink
-            link="/comics"
-            text="Comics"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/comics.png").node.childImageSharp.fluid}
-        />
+		<FrontLink
+		    link="/comics"
+		    text="Comics"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/comics.png").node.childImageSharp.fluid}
+		/>
 
-        <FrontLink
-            link="/drawings"
-            text="Drawings"
-            image={data.allFile.edges.find(({node}) => node.relativePath === "front/drawings.jpg").node.childImageSharp.fluid}
-        />
+		<FrontLink
+		    link="/drawings"
+		    text="Drawings"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/drawings.jpg").node.childImageSharp.fluid}
+		/>
+
+		<FrontLink
+		    className="about"
+		    link="/about"
+		    text="About"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg").node.childImageSharp.fluid}
+		/>
         </div>
 
         </>

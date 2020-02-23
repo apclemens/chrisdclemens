@@ -30,6 +30,16 @@
             transition: opacity .1s linear;
         }
 
+	&.about {
+		width: 644px;
+		height: 200px;
+		overflow: hidden;
+
+		img {
+			transform: translateY(-93px);
+		}
+	}
+
         &:hover {
             .gatsby-image-wrapper {
                 filter: none;
@@ -54,6 +64,15 @@
              .title {
                  font-size: 3vw;
              }
+		&.about {
+			width: calc(69vw - 4px);
+			height: calc(21.4vw - 1.2px);
+			overflow: hidden;
+
+			img {
+				transform: translateY(-93px);
+			}
+		}
          }
      }
  }

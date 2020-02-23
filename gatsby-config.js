@@ -27,6 +27,14 @@ module.exports = {
         resolve: `gatsby-source-google-sheets`,
         options: {
             spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
+            worksheetTitle: 'original',
+            credentials: require('./google-credentials.json'),
+        },
+    },
+    {
+        resolve: `gatsby-source-google-sheets`,
+        options: {
+            spreadsheetId: '1qoOFNmf7h_KrsEQ0NGJPufDstvLx8pFjFp_ifcqmocY',
             worksheetTitle: 'comics',
             credentials: require('./google-credentials.json'),
         },

@@ -49,6 +49,9 @@ export default ({ children }) => (
                 <Link to="/commissioned">
                     <div>Commissioned Work</div>
                 </Link>
+                <Link to="/original">
+                    <div>Original Articles</div>
+                </Link>
                 <Link to="/comics">
                     <div>Comics</div>
                 </Link>
