@@ -30,16 +30,6 @@
             transition: opacity .1s linear;
         }
 
-	&.about {
-		width: 644px;
-		height: 200px;
-		overflow: hidden;
-
-		img {
-			transform: translateY(-93px);
-		}
-	}
-
         &:hover {
             .gatsby-image-wrapper {
                 filter: none;
@@ -49,6 +39,26 @@
                 opacity: 0;
             }
         }
+
+	&.about {
+		width: 644px;
+		height: 100px;
+		overflow: hidden;
+		background-color: #4bb54b;
+
+		img {
+			transform: translateY(-93px);
+		}
+		&:hover {
+		    .gatsby-image-wrapper {
+			filter: none;
+		    }
+
+		    .title {
+			opacity: 1;
+		    }
+		}
+	}
     }
 }
 

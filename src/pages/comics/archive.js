@@ -15,6 +15,7 @@ export default class AboutPage extends React.Component {
                     query {
                           allGoogleSheetComicsRow {
                                   nodes {
+				      index
                                       title
                                       url
                                         }
@@ -28,7 +29,7 @@ export default class AboutPage extends React.Component {
     
     <div className="comics-archive">
     {
-        data.allGoogleSheetComicsRow.nodes.reverse().map((node) =>
+        data.allGoogleSheetComicsRow.nodes.sort((a,b)=>{return (false ? (a.title < b.title) : (a.index < b.index))}).map((node) =>
                 <>
             <Link to={'/comics/' + node.url}>{node.title}</Link><br />
             </>

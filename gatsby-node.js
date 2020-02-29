@@ -34,6 +34,16 @@ exports.createPages = ({ graphql, actions }) => {
               files
               text
               layout
+	      captions
+          }
+      }
+  }
+  allGoogleSheetOriginalRow {
+      edges {
+          node {
+              title
+	      image
+	      link
           }
       }
   }
@@ -91,6 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
                     title: node.title,
                     files: node.files,
                     text: node.text,
+                    captions: node.captions,
                     fluid:
                         node.files.split(',').map(
                             fileName => 
@@ -101,6 +112,9 @@ exports.createPages = ({ graphql, actions }) => {
                 }
             })
         })
+	// create individual original article pages
+	result.data.allGoogleSheetOriginalRow.edges.forEach(({ node }, index) => {
+	})
         // create invididual comics pages
         result.data.allGoogleSheetComicsRow.edges.forEach(({ node }, index) => {
             prevComic = 

@@ -17,11 +17,13 @@ export default class OriginalPage extends React.Component {
                         nodes {
 				title
 				link
+				image
                         }
                     }
                     allFile(filter: {relativeDirectory: {eq: "original"}}) {
                         edges {
                             node {
+				relativePath
                                 childImageSharp {
                                     fluid(maxWidth: 800) {
                                         ...GatsbyImageSharpFluid
@@ -37,15 +39,23 @@ export default class OriginalPage extends React.Component {
                         <Layout>
                             <SEO title="Original Articles | Chris D Clemens" />
 
-    <div className="comics-archive">
+    <div className="original-list">
     {
-        data.allGoogleSheetOriginalRow.nodes.map((node) =>
-                <>
-            <a href={node.link} target="_blank">{node.title}</a><br />
-            </>
+        data.allGoogleSheetOriginalRow.nodes.map((node) => 
+            <a href={node.link} target="_blank">
+                <Img
+                    fluid={data.allFile.edges.find((fileNode) =>
+                        fileNode.node.relativePath === "original/" + node.image
+                        ).node.childImageSharp.fluid
+                    }
+                />
+                <span>
+                    {node.title}
+                </span>
+            </a>
         )
     }
-			    </div>
+    </div>
                         </Layout>
                     )
                 }}

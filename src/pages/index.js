@@ -71,7 +71,6 @@ export default class IndexPage extends React.Component {
 		    className="about"
 		    link="/about"
 		    text="About"
-		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg").node.childImageSharp.fluid}
 		/>
         </div>
 

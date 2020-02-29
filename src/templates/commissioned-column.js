@@ -22,11 +22,15 @@ export default class Commissioned extends React.Component {
                         {
                             this.props.pageContext.fluid.map(
                                 (f, index) =>
+				    <>
+				    {this.props.pageContext.captions && <h3 style={{textAlign: 'center', marginTop: 30}}>{this.props.pageContext.captions.split(';')[index]}</h3>}
                                     <Img 
                                         fluid={f.node.childImageSharp.fluid}
                                     />
+				    </>
                             )
                         }
+			
                     </div>
                 </Layout>
                )
