@@ -43,20 +43,23 @@ export default ({ children }) => (
 
         <div className="content">
             <div className="layout-links">
-                <Link to="/about">
-                    <div>About</div>
-                </Link>
                 <Link to="/commissioned">
                     <div>Commissioned Work</div>
-                </Link>
-                <Link to="/original">
-                    <div>Original Articles</div>
                 </Link>
                 <Link to="/comics">
                     <div>Comics</div>
                 </Link>
+                <Link to="/videos">
+                    <div>Videos</div>
+                </Link>
+                <Link to="/original">
+                    <div>Original Articles</div>
+                </Link>
                 <Link to="/drawings">
                     <div>Drawings</div>
+                </Link>
+                <Link to="/about">
+                    <div>About</div>
                 </Link>
             </div>
 

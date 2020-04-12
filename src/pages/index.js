@@ -50,15 +50,21 @@ export default class IndexPage extends React.Component {
 		/>
 
 		<FrontLink
-		    link="/original"
-		    text="Original Articles"
-		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/original.png").node.childImageSharp.fluid}
-		/>
-
-		<FrontLink
 		    link="/comics"
 		    text="Comics"
 		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/comics.png").node.childImageSharp.fluid}
+		/>
+
+		<FrontLink
+		    link="/videos"
+		    text="videos"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/videos.png").node.childImageSharp.fluid}
+		/>
+
+		<FrontLink
+		    link="/original"
+		    text="Original Articles"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/original.png").node.childImageSharp.fluid}
 		/>
 
 		<FrontLink
@@ -68,9 +74,9 @@ export default class IndexPage extends React.Component {
 		/>
 
 		<FrontLink
-		    className="about"
 		    link="/about"
 		    text="About"
+		    image={data.allFile.edges.find(({node}) => node.relativePath === "front/about.jpeg").node.childImageSharp.fluid}
 		/>
         </div>
 
