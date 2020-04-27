@@ -16,8 +16,14 @@
 	}
 }
 
-@media only screen and (max-width: 872px) {
-    .about-image {
-        max-width: calc(100% - 40px);
+@media only screen and (max-width: 630px) {
+    .original-list {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .original-list {
+        grid-template-columns: 100%;
     }
 }
