@@ -23,7 +23,9 @@ export default class AboutPage extends React.Component {
                     render={data=>{
                         const numComics = data.allGoogleSheetComicsRow.nodes.length
                         const rand = data.allGoogleSheetComicsRow.nodes[Math.floor(Math.random()*numComics)]
-                        navigate('/comics/'+rand.url)
+                        if (typeof window !== `undefined`) {
+                          navigate('/comics/'+rand.url)
+                        }
                         return (
                                 <Layout></Layout>
 
