@@ -21,19 +21,19 @@
 
     <div class="front-links">
 	    <a class="front-image" href="/commissioned">
-                    <img src="../front-images/commissioned.jpg">
+                    <img src="../front-images/commissioned.png">
 		    <span class="title">Commissioned Work</span>
 	    </a>
 	    <a class="front-image" href="/comics">
-                    <img src="../front-images/comics.jpg">
+                    <img src="../front-images/comics.png">
 		    <span class="title">Comics</span>
 	    </a>
 	    <a class="front-image" href="/videos">
-                    <img src="../front-images/videos.jpg">
+                    <img src="../front-images/videos.png">
 		    <span class="title">Videos</span>
 	    </a>
 	    <a class="front-image" href="/original">
-                    <img src="../front-images/original.jpg">
+                    <img src="../front-images/original.png">
 		    <span class="title">Original</span>
 	    </a>
 	    <a class="front-image" href="/drawings">
