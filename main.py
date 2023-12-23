@@ -31,6 +31,8 @@ f = open('docs/CNAME', 'w')
 f.write('chrisdclemens.com')
 f.close()
 
+shutil.copytree('images', 'docs/images')
+
 f = open('style.css', 'r')
 css = f.read()
 f.close()
