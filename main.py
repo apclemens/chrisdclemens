@@ -83,7 +83,7 @@ for i in range(len(comics_info)):
         html = html.replace('[NEXT]', comics_info[i][3])
     else:
         html = html.replace('[NEXT]', comics_info[i+1][3])
-    image_html = '<img src="../../../images/'+comics_info[i][1]+'" class="comic sp-'+comics_info[i][2]+'">'
+    image_html = '<img src="/images/'+comics_info[i][1]+'" class="comic sp-'+comics_info[i][2]+'">'
     html = html.replace('[IMAGE]', image_html)
     html = general_changes(html)
     os.mkdir('docs/comics/'+comics_info[i][3])
@@ -139,7 +139,7 @@ for tr in trs:
     filename = tds[1].text
     drawings_html += """
 <div class="image-box">
-<img src="../../images/FILENAME">
+<img src="/images/FILENAME">
 <!--<div class="caption">CAPTION</div>-->
 </div>
     """.replace('FILENAME', filename).replace('CAPTION', title)
@@ -161,7 +161,6 @@ commissioned_cards = ''
 trs.pop(0)
 i = 0
 os.mkdir('docs/commissioned')
-os.mkdir('docs/commissioned/images')
 for tr in trs:
     tds = tr.findAll('td')
     title = tds[0].text
@@ -181,7 +180,7 @@ for tr in trs:
     files_array = files.split(',')
     captions_array = captions.split(';')
     for i in range(len(files_array)):
-        files_text += '<figure><img src="../../../images/'+files_array[i]+'"></figure>'
+        files_text += '<figure><img src="/images/'+files_array[i]+'"></figure>'
         if captions:
             files_text += '<h3>'+captions_array[i]+'</h3>'
     html = html.replace('[FILES]', files_text)
@@ -193,16 +192,10 @@ for tr in trs:
     if i%2 == 0: parity = 'even'
     else: parity = 'odd'
     i += 1
-
-    image_url = 'https://raw.githubusercontent.com/apclemens/chrisdclemens/master/commissioned/'+thumbnail
-    try:
-        urllib.request.urlretrieve(image_url, 'docs/commissioned/images/'+thumbnail)
-    except:
-        pass
     commissioned_cards += """
     <a class="commissioned-card PARITY" href="/commissioned/URL">
     <span>TITLE</span>
-    <figure><img src="images/THUMBNAIL"></figure>
+    <figure><img src="/images/THUMBNAIL"></figure>
     </a>
     """.replace('TITLE', title).replace('PARITY', parity).replace('THUMBNAIL', thumbnail).replace('URL', url)
 
@@ -222,21 +215,15 @@ trs.pop(0)
 trs.pop(0)
 trs.pop(0)
 os.mkdir('docs/original')
-os.mkdir('docs/original/images')
 original_html = ''
 for tr in trs:
     tds = tr.findAll('td')
     title = tds[0].text
     image = tds[1].text
     link = tds[2].text
-    image_url = 'https://raw.githubusercontent.com/apclemens/chrisdclemens/master/content/original/'+image
-    try:
-        urllib.request.urlretrieve(image_url, 'docs/original/images/'+image)
-    except:
-        pass
     original_html += """
 <a href="LINK" target="_blank">
-<img src="images/IMAGE">
+<img src="/images/IMAGE">
 <span>TITLE</span>
 </a>
     """.replace('LINK', link).replace('IMAGE', image).replace('TITLE', title)
