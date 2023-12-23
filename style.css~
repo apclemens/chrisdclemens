@@ -224,3 +224,12 @@ max-width: 75%;
 .original-list a span {
 	color: white;
 }
+
+.gallery-container {
+	display: grid;
+	grid-template-columns: 32% 32% 32%;
+	grid-gap: 1%;
+}
+.gallery-container img {
+	width: 100%;
+}
