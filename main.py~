@@ -236,7 +236,7 @@ for tr in trs:
     link = tds[2].text
     url = tds[3].text
     original_html += """
-<a href="LINK" target="_blank">
+<a href="LINK">
 <img src="/images/IMAGE">
 <span>TITLE</span>
 </a>
