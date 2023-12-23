@@ -29,6 +29,9 @@ header a {
 body.front header a {
 	font-size: 600%;
 }
+@media screen and (max-width: 720px) {
+font-size: 13.3vw;
+}
 
 .front-links {
 	padding-top: 20px;
@@ -37,8 +40,8 @@ body.front header a {
 }
 
 .front-links .front-image {
-	width: 300px;
-	height: 300px;
+	width: calc(50% - 43px);
+	height: auto;
 	display: inline-block;
 	position: relative;
 	border: 2px solid #000;
@@ -128,6 +131,7 @@ background-color: #000;
 img.comic {
 max-width: 95%;
 margin: auto;
+display: block;
 }
 img.comic.sp-yes {
 max-width: 65%;
@@ -203,6 +207,7 @@ text-align: center;
 body.project img {
 margin: 10px auto;
 max-width: 75%;
+display: block;
 }
 
 .original-list {

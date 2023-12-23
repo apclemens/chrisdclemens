@@ -29,7 +29,6 @@ header a {
 body.front header a {
 	font-size: 600%;
 }
-
 .front-links {
 	padding-top: 20px;
 	margin: auto;
@@ -37,8 +36,8 @@ body.front header a {
 }
 
 .front-links .front-image {
-	width: 300px;
-	height: 300px;
+	width: calc(50% - 43px);
+	height: auto;
 	display: inline-block;
 	position: relative;
 	border: 2px solid #000;
@@ -72,6 +71,15 @@ body.front header a {
 .front-image:hover .title {
 	opacity: 0;
 }
+@media screen and (max-width: 720px) {
+body.front header a {
+font-size: 13.3vw;
+}
+.front-image .title {
+	font-size:3.5vw;
+}
+}
+
 
 .content {
 	width: 800px;
