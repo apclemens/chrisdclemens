@@ -205,7 +205,7 @@ for tr in trs:
             files_text += """
 <div class="mySlides">
 <div class="numbertext">INDEX / ALL</div>
-<img src="images/IMAGE" style="width: 100%;">
+<img src="/images/IMAGE" style="width: 100%;">
 </div>
             """.replace('INDEX', str(i+1)).replace('ALL', str(len(files_array))).replace('IMAGE', files_array[i])
         files_text += """
@@ -216,7 +216,7 @@ for tr in trs:
         for i in range(len(files_array)):
             files_text += """
 <div class="column">
-<img class="demo cursor" src="images/IMAGE" style="width: 100%;" onclick="currentSlide(INDEX)">
+<img class="demo cursor" src="/images/IMAGE" style="width: 100%;" onclick="currentSlide(INDEX)">
 </div>
             """.replace('IMAGE', files_array[i]).replace('INDEX', str(i+1))
         files_text += """
