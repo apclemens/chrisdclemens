@@ -20,7 +20,9 @@
     <!-- header -->
 <div class="content">
 	    [NAV]
+<div class="commissioned-list">
     [COMMISSIONED]
+</div>
 </div>
   </body>
 </html>

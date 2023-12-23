@@ -27,6 +27,9 @@ try:
 except:
     pass
 os.mkdir('docs')
+f = open('docs/CNAME', 'w')
+f.write('chrisdclemens.com')
+f.close()
 
 f = open('style.css', 'r')
 css = f.read()

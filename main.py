@@ -198,11 +198,11 @@ for tr in trs:
     except:
         pass
     commissioned_cards += """
-    <a class="commissioned-card PARITY" href="#">
+    <a class="commissioned-card PARITY" href="/commissioned/URL">
     <span>TITLE</span>
     <figure><img src="images/THUMBNAIL"></figure>
     </a>
-    """.replace('TITLE', title).replace('PARITY', parity).replace('THUMBNAIL', thumbnail)
+    """.replace('TITLE', title).replace('PARITY', parity).replace('THUMBNAIL', thumbnail).replace('URL', url)
 
 f = open('commissioned.html', 'r')
 html = f.read()
