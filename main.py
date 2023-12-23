@@ -1,0 +1,251 @@
+import requests as rs
+import os, shutil
+from bs4 import BeautifulSoup as soup
+import urllib.request
+
+def general_changes(html):
+    NAV_HTML = """
+    <div class="nav">
+    <a href="/commissioned">Commissioned Work</a>
+    <a href="/comics">Comics</a>
+    <a href="/videos">Videos</a>
+    <a href="/original">Original Articles</a>
+    <a href="/drawings">Drawings</a>
+    <a href="/about">About</a>
+    </div>
+    """
+    return html.replace('[NAV]', NAV_HTML)
+
+
+csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7eYIZH2_oqrFqg0bTbDhyQTr-VGY2dTG3crlgLXrsf-cDGANWK4rFGAjyWVBIQQyK-mkLVVJaqrnj/pubhtml'
+res = rs.get(url = csv_url)
+csv_soup = soup(res.content, 'html.parser')
+tables = csv_soup.findAll('table')
+
+try:
+    shutil.rmtree('out')
+except:
+    pass
+os.mkdir('out')
+
+f = open('style.css', 'r')
+css = f.read()
+f.close()
+os.mkdir('out/assets')
+f = open('out/assets/style.css', 'w')
+f.write(css)
+f.close()
+
+f = open('index.html', 'r')
+html = f.read()
+f.close()
+f = open('out/index.html', 'w')
+f.write(html)
+f.close()
+
+# comics
+comics = tables.pop(0)
+trs = comics.findAll('tr')
+trs.pop(0)
+trs.pop(0)
+trs.pop(0)
+comics_info = []
+archive_html = '<ul class="comics-archive">'
+for tr in trs:
+    tds = tr.findAll('td')
+    index = tds[0].text
+    title = tds[1].text
+    filename = tds[2].text
+    single_panel = tds[3].text
+    url = tds[4].text
+    comics_info.append((title, filename, single_panel, url))
+    archive_html += '<li><a href="/comics/'+url+'">'+title+'</a></li>'
+archive_html += '</ul>'
+
+first = comics_info[0][3]
+last = comics_info[-1][3]
+os.mkdir('out/comics')
+for i in range(len(comics_info)):
+    f = open('comic.html', 'r')
+    html = f.read()
+    f.close()
+    html = html.replace('[TITLE]', comics_info[i][0]).replace('[FIRST]', first).replace('[LAST]', last)
+    if i == 0:
+        html = html.replace('[PREV]', comics_info[i][3])
+    else:
+        html = html.replace('[PREV]', comics_info[i-1][3])
+    if i == len(comics_info)-1:
+        html = html.replace('[NEXT]', comics_info[i][3])
+    else:
+        html = html.replace('[NEXT]', comics_info[i+1][3])
+    image_html = '<img src="../../../images/'+comics_info[i][1]+'" class="comic sp-'+comics_info[i][2]+'">'
+    html = html.replace('[IMAGE]', image_html)
+    html = general_changes(html)
+    os.mkdir('out/comics/'+comics_info[i][3])
+    f = open('out/comics/'+comics_info[i][3]+'/index.html', 'w')
+    f.write(html)
+    f.close()
+f = open('out/comics/index.html', 'w')
+f.write(html)
+f.close()
+f = open('comic_archive.html', 'r')
+html = f.read().replace('[ARCHIVE]', archive_html)
+html = general_changes(html)
+f.close()
+os.mkdir('out/comics/archive')
+f = open('out/comics/archive/index.html', 'w')
+f.write(html)
+f.close()
+
+# videos
+videos = tables.pop(0)
+trs = videos.findAll('tr')
+trs.pop(0)
+trs.pop(0)
+trs.pop(0)
+videos_html = ''
+os.mkdir('out/videos')
+for tr in trs:
+    tds = tr.findAll('td')
+    title = tds[0].text
+    link = tds[1].text
+    videos_html += '<h3>'+title+'</h3>'
+    videos_html += '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+link+'?si=byVUx4u1CtdudxN1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+f = open('videos.html', 'r')
+html = f.read()
+html = html.replace('[VIDEOS]', videos_html)
+html = general_changes(html)
+f.close()
+f = open('out/videos/index.html', 'w')
+f.write(html)
+f.close()
+
+# drawings
+drawings = tables.pop(0)
+trs = drawings.findAll('tr')
+trs.pop(0)
+trs.pop(0)
+trs.pop(0)
+drawings_html = ''
+os.mkdir('out/drawings')
+for tr in trs:
+    tds = tr.findAll('td')
+    title = tds[0].text
+    filename = tds[1].text
+    drawings_html += """
+<div class="image-box">
+<img src="../../images/FILENAME">
+<!--<div class="caption">CAPTION</div>-->
+</div>
+    """.replace('FILENAME', filename).replace('CAPTION', title)
+f = open('drawings.html', 'r')
+html = f.read()
+html = html.replace('[DRAWINGS]', drawings_html)
+html = general_changes(html)
+f.close()
+f = open('out/drawings/index.html', 'w')
+f.write(html)
+f.close()
+
+# commissioned
+commissioned = tables.pop(0)
+trs = commissioned.findAll('tr')
+trs.pop(0)
+trs.pop(0)
+commissioned_cards = ''
+trs.pop(0)
+i = 0
+os.mkdir('out/commissioned')
+os.mkdir('out/commissioned/images')
+for tr in trs:
+    tds = tr.findAll('td')
+    title = tds[0].text
+    thumbnail = tds[1].text
+    url = tds[2].text
+    layout = tds[3].text
+    files = tds[4].text
+    captions = tds[5].text
+    text = tds[6].text
+
+    f = open('project.html', 'r')
+    html = f.read()
+    f.close()
+    html = html.replace('[TITLE]', title)
+    html = html.replace('[TEXT]', text)
+    files_text = ''
+    files_array = files.split(',')
+    captions_array = captions.split(';')
+    for i in range(len(files_array)):
+        files_text += '<figure><img src="../../../images/'+files_array[i]+'"></figure>'
+        if captions:
+            files_text += '<h3>'+captions_array[i]+'</h3>'
+    html = html.replace('[FILES]', files_text)
+    html = general_changes(html)
+    os.mkdir('out/commissioned/'+url)
+    f = open('out/commissioned/'+url+'/index.html', 'w')
+    f.write(html)
+    f.close()
+    if i%2 == 0: parity = 'even'
+    else: parity = 'odd'
+    i += 1
+
+    image_url = 'https://raw.githubusercontent.com/apclemens/chrisdclemens/master/content/commissioned/'+thumbnail
+    urllib.request.urlretrieve(image_url, 'out/commissioned/images/'+thumbnail)
+    commissioned_cards += """
+    <a class="commissioned-card PARITY" href="#">
+    <span>TITLE</span>
+    <figure><img src="images/THUMBNAIL"></figure>
+    </a>
+    """.replace('TITLE', title).replace('PARITY', parity).replace('THUMBNAIL', thumbnail)
+
+f = open('commissioned.html', 'r')
+html = f.read()
+f.close()
+html = html.replace('[COMMISSIONED]', commissioned_cards)
+html = general_changes(html)
+f = open('out/commissioned/index.html', 'w')
+f.write(html)
+f.close()
+
+# original
+original = tables.pop(0)
+trs = original.findAll('tr')
+trs.pop(0)
+trs.pop(0)
+trs.pop(0)
+os.mkdir('out/original')
+os.mkdir('out/original/images')
+original_html = ''
+for tr in trs:
+    tds = tr.findAll('td')
+    title = tds[0].text
+    image = tds[1].text
+    link = tds[2].text
+    image_url = 'https://raw.githubusercontent.com/apclemens/chrisdclemens/master/content/original/'+image
+    urllib.request.urlretrieve(image_url, 'out/original/images/'+image)
+    original_html += """
+<a href="LINK" target="_blank">
+<img src="images/IMAGE">
+<span>TITLE</span>
+</a>
+    """.replace('LINK', link).replace('IMAGE', image).replace('TITLE', title)
+f = open('original.html', 'r')
+html = f.read()
+html = general_changes(html)
+f.close()
+f = open('out/original/index.html', 'w')
+f.write(html.replace('[ORIGINAL]', original_html))
+f.close()
+
+# about
+about = tables.pop(0)
+tr = about.findAll('tr')[-1]
+about_text = tr.findAll('td')[0].text
+f = open('about.html', 'r')
+html = f.read().replace('[ABOUT]', about_text)
+html = general_changes(html)
+f.close()
+os.mkdir('out/about')
+f = open('out/about/index.html', 'w')
+f.write(html)
+f.close()

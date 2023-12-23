@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Chris Clemens</title>
+  </head>
+  <body class="front">
+    
+    <!-- header -->
+    <header class="front-header">
+      <div class="container">
+          <div class="ds-logo">
+            <a href="index.html">Chris Clemens</a>
+          </div>
+      </div>
+    </header>
+    <!-- header -->
+
+    <div class="front-links">
+	    <a class="front-image" href="/commissioned">
+                    <img src="../front-images/commissioned.jpg">
+		    <span class="title">Commissioned Work</span>
+	    </a>
+	    <a class="front-image" href="/comics">
+                    <img src="../front-images/comics.jpg">
+		    <span class="title">Comics</span>
+	    </a>
+	    <a class="front-image" href="/videos">
+                    <img src="../front-images/videos.jpg">
+		    <span class="title">Videos</span>
+	    </a>
+	    <a class="front-image" href="/original">
+                    <img src="../front-images/original.jpg">
+		    <span class="title">Original</span>
+	    </a>
+	    <a class="front-image" href="/drawings">
+                    <img src="../front-images/drawings.jpg">
+		    <span class="title">Drawings</span>
+	    </a>
+	    <a class="front-image" href="/about">
+                    <img src="../front-images/about.jpg">
+		    <span class="title">About</span>
+	    </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chris Clemens - Comics - [TITLE]</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+  </head>
+  <body>
+    
+    <!-- header -->
+    <header class="ds-header">
+      <div class="container">
+          <div class="ds-logo">
+            <a href="index.html">Chris Clemens</a>
+          </div>
+      </div>
+    </header>
+    <!-- header -->
+    <div class="content">
+	    [NAV]
+    <h2>[TITLE]</h2>
+    <div class="comic-nav-group">
+	    <a id="first" href="/comics/[FIRST]"> |&lt;First</a>
+	    <a id="prev" href="/comics/[PREV]"> &lt;Prev</a>
+	    <a id="rand" href="/comics/random"> Random</a>
+	    <a id="arch" href="/comics/archive"> Archive</a>
+	    <a id="next" href="/comics/[NEXT]"> Next&gt; </a>
+	    <a id="last" href="/comics/[LAST]"> Last &gt;|</a>
+    </div>
+    [IMAGE]
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chris Clemens - Drawings</title>
+  </head>
+  <body>
+    
+    <!-- header -->
+    <header class="ds-header">
+      <div class="container">
+          <div class="ds-logo">
+            <a href="index.html">Chris Clemens</a>
+	    [NAV]
+          </div>
+      </div>
+
+    </header>
+    <!-- header -->
+    <div class="gallery-container">
+	    [DRAWINGS]
+    </div>
+  </body>
+</html>
