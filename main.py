@@ -25,7 +25,6 @@ res = rs.get(url = csv_url)
 csv_soup = soup(res.content, 'html.parser')
 tables = csv_soup.findAll('table')
 
-a,b=1
 try:
     shutil.rmtree('docs')
 except:
