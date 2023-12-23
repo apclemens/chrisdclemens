@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: cp1252 -*
+
 import requests as rs
 import os, shutil
 from bs4 import BeautifulSoup as soup
@@ -72,7 +75,7 @@ random_code = """
 document.getElementById('rand').onclick = function() {
 urls = URLS;
 randomComic = urls[Math.floor(Math.random()*urls.length)];
-window.location.href = 'https://chrisdclemens.com/comics/'+randomcomic;
+window.location.href = 'https://chrisdclemens.com/comics/'+randomComic;
 }
 </script>
 """.replace('URLS', str([i[3] for i in comics_info]))
@@ -231,12 +234,32 @@ for tr in trs:
     title = tds[0].text
     image = tds[1].text
     link = tds[2].text
+    url = tds[3].text
     original_html += """
 <a href="LINK" target="_blank">
 <img src="/images/IMAGE">
 <span>TITLE</span>
 </a>
     """.replace('LINK', link).replace('IMAGE', image).replace('TITLE', title)
+
+    fp = urllib.request.urlopen(link)
+    mybytes = fp.read()
+    mystr = mybytes.decode('utf8')
+    fp.close()
+    page_soup = soup(mybytes, 'html.parser')
+    body = page_soup.find('div', attrs={'class': 'post-body'})
+    f = open('original_article.html', 'r')
+    html = f.read().replace('[TITLE]', title).replace('[ARTICLE]', str(body))
+    replacements = [(u"’", "'"), (u'“','"'), (u'”', '"'), (u"‘", "'"), (u'\xa0',' ')]
+    for r in replacements:
+        html = html.replace(r[0], r[1])
+    html = general_changes(html)
+    f.close()
+    os.mkdir('docs/original/'+url)
+    f = open('docs/original/'+url+'/index.html', 'w')
+    f.write(html)
+    f.close()
+
 f = open('original.html', 'r')
 html = f.read()
 html = general_changes(html)
