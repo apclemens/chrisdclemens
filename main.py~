@@ -240,7 +240,7 @@ for tr in trs:
 <img src="/images/IMAGE">
 <span>TITLE</span>
 </a>
-    """.replace('LINK', link).replace('IMAGE', image).replace('TITLE', title)
+    """.replace('LINK', '/original/'+url).replace('IMAGE', image).replace('TITLE', title)
 
     fp = urllib.request.urlopen(link)
     mybytes = fp.read()
