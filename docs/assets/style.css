@@ -82,7 +82,7 @@ font-size: 13.3vw;
 
 
 .content {
-	width: 800px;
+	max-width: 800px;
 	margin: 0 auto 10px;
 	background: #c5cae9;
 	border: 2px solid #000;
