@@ -72,7 +72,7 @@ random_code = """
 document.getElementById('rand').onclick = function() {
 urls = URLS;
 randomComic = urls[Math.floor(Math.random()*urls.length)];
-window.location.href = 'https://chrisdclemens.com/comics/'+randomcomic;
+window.location.href = 'https://chrisdclemens.com/comics/'+randomComic;
 }
 </script>
 """.replace('URLS', str([i[3] for i in comics_info]))

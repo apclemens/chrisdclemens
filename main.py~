@@ -75,7 +75,7 @@ randomComic = urls[Math.floor(Math.random()*urls.length)];
 window.location.href = 'https://chrisdclemens.com/comics/'+randomcomic;
 }
 </script>
-""".replace(URLS, str([i[3] for i in comics_info]))
+""".replace('URLS', str([i[3] for i in comics_info]))
 
 first = comics_info[0][3]
 last = comics_info[-1][3]
