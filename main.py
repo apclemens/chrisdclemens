@@ -67,6 +67,16 @@ for tr in trs:
     archive_html += '<li><a href="/comics/'+url+'">'+title+'</a></li>'
 archive_html += '</ul>'
 
+random_code = """
+<script>
+document.getElementById('rand').onclick = function() {
+urls = URLS;
+randomComic = urls[Math.floor(Math.random()*urls.length)];
+window.location.href = 'https://chrisdclemens.com/comics/'+randomcomic;
+}
+</script>
+""".replace('URLS', str([i[3] for i in comics_info]))
+
 first = comics_info[0][3]
 last = comics_info[-1][3]
 os.mkdir('docs/comics')
@@ -84,7 +94,7 @@ for i in range(len(comics_info)):
     else:
         html = html.replace('[NEXT]', comics_info[i+1][3])
     image_html = '<img src="/images/'+comics_info[i][1]+'" class="comic sp-'+comics_info[i][2]+'">'
-    html = html.replace('[IMAGE]', image_html)
+    html = html.replace('[IMAGE]', image_html).replace('[RANDOM]', random_code)
     html = general_changes(html)
     os.mkdir('docs/comics/'+comics_info[i][3])
     f = open('docs/comics/'+comics_info[i][3]+'/index.html', 'w')
