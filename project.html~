@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/style.css">
     <title>Chris Clemens - Commissioned - [TITLE]</title>
   </head>
-  <body>
+  <body class="project">
     
     <!-- header -->
     <header class="ds-header">

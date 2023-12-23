@@ -21,7 +21,9 @@
     <!-- header -->
     <div class="content">
 [NAV]
+<div class="original-list">
 	    [ORIGINAL]
+</div>
     </div>
   </body>
 </html>

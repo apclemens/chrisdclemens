@@ -7,7 +7,7 @@
     <title>Chris Clemens - Comics - [TITLE]</title>
     <link rel="stylesheet" href="../../assets/style.css">
   </head>
-  <body>
+  <body class="comic">
     
     <!-- header -->
     <header class="ds-header">

@@ -21,7 +21,7 @@
     <!-- header -->
     <div class="content">
 	    [NAV]
-	    <img src="../../images/live.jpg">
+	    <img style="width: 100%;" src="../../images/live.jpg">
 	    [ABOUT]
     </div>
   </body>
