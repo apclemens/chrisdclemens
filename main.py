@@ -192,10 +192,64 @@ for tr in trs:
     files_text = ''
     files_array = files.split(',')
     captions_array = captions.split(';')
-    for i in range(len(files_array)):
-        files_text += '<figure><img src="/images/'+files_array[i]+'"></figure>'
-        if captions:
-            files_text += '<h3>'+captions_array[i]+'</h3>'
+    if layout == 'column':
+        for i in range(len(files_array)):
+            files_text += '<figure><img src="/images/'+files_array[i]+'"></figure>'
+            if captions:
+                files_text += '<h3>'+captions_array[i]+'</h3>'
+    elif layout == 'page':
+        files_text += """
+<div class="commissioned-container">
+        """
+        for i in range(len(files_array)):
+            files_text += """
+<div class="mySlides">
+<div class="numbertext">INDEX / ALL</div>
+<img src="images/IMAGE" style="width: 100%;">
+</div>
+            """.replace('INDEX', str(i+1)).replace('ALL', str(len(files_array))).replace('IMAGE', files_array[i])
+        files_text += """
+<a class="prev" onclick="plusSlides(-1)"> prev</a>
+<a class="next" onclick="plusSlides(1)"> next</a>
+<div class="row">
+        """
+        for i in range(len(files_array)):
+            files_text += """
+<div class="column">
+<img class="demo cursor" src="images/IMAGE" style="width: 100%;" onclick="currentSlide(INDEX)">
+</div>
+            """.replace('IMAGE', files_array[i]).replace('INDEX', str(i+1))
+        files_text += """
+        </div></div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  if (n > slides.length) {slideIndex = 1;}
+  if (n < 1) {slideIndex = slides.length;}
+  for (i=0; i<slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i=0; i<dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+        """
     html = html.replace('[FILES]', files_text)
     html = general_changes(html)
     os.mkdir('docs/commissioned/'+url)

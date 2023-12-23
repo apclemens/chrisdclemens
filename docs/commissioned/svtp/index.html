@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Chris Clemens - Commissioned - Sewing Vocational Training Project (2017)</title>
   </head>
   <body class="project">
@@ -32,7 +32,70 @@
     
 <h2>Sewing Vocational Training Project (2017)</h2>
 					This illustration was created to help portray the main Lessons Learned from a program run by Organization to Develop Our Villages.
-					<figure><img src="/images/svtp1.jpg"></figure><figure><img src="/images/svtp2.jpg"></figure><figure><img src="/images/svtp3.jpg"></figure>
+					
+<div class="commissioned-container">
+        
+<div class="mySlides">
+<div class="numbertext">1 / 3</div>
+<img src="images/svtp1.jpg" style="width: 100%;">
+</div>
+            
+<div class="mySlides">
+<div class="numbertext">2 / 3</div>
+<img src="images/svtp2.jpg" style="width: 100%;">
+</div>
+            
+<div class="mySlides">
+<div class="numbertext">3 / 3</div>
+<img src="images/svtp3.jpg" style="width: 100%;">
+</div>
+            
+<a class="prev" onclick="plusSlides(-1)"> prev</a>
+<a class="next" onclick="plusSlides(1)"> next</a>
+<div class="row">
+        
+<div class="column">
+<img class="demo cursor" src="images/svtp1.jpg" style="width: 100%;" onclick="currentSlide(1)">
+</div>
+            
+<div class="column">
+<img class="demo cursor" src="images/svtp2.jpg" style="width: 100%;" onclick="currentSlide(2)">
+</div>
+            
+<div class="column">
+<img class="demo cursor" src="images/svtp3.jpg" style="width: 100%;" onclick="currentSlide(3)">
+</div>
+            
+        </div></div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  if (n > slides.length) {slideIndex = 1;}
+  if (n < 1) {slideIndex = slides.length;}
+  for (i=0; i<slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i=0; i<dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+        
 </div>
   </body>
 </html>

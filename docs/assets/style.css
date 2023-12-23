@@ -243,3 +243,79 @@ display: block;
 .gallery-container img {
 	width: 100%;
 }
+
+.commissioned-container {
+	position: relative;
+}
+.mySlides {
+	display: none;
+}
+.cursor { cursor: pointer;}
+.commissioned-container .prev,
+.commissioned-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.commissioned-container .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.commissioned-container .prev:hover,
+.commissioned-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+/* Number text (1/3 etc) */
+.commissioned-container .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.commissioned-container .caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.commissioned-container .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.commissioned-container .column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.commissioned-container .demo {
+  opacity: 0.6;
+}
+
+.commissioned-container .active,
+.commissioned-container .demo:hover {
+  opacity: 1;
+  border: 1px solid black;
+} 
