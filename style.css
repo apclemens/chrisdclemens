@@ -217,8 +217,8 @@ display: block;
 
 .original-list {
 	display: grid;
-	grid-template-columns: 33% 33% 33%;
-	grid-gap: 10px 10px;
+	grid-template-columns: 32% 32% 32%;
+	grid-gap: 2% 2%;
 }
 .original-list a{
 	text-align: center;
