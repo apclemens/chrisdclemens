@@ -225,7 +225,10 @@ for tr in trs:
     image = tds[1].text
     link = tds[2].text
     image_url = 'https://raw.githubusercontent.com/apclemens/chrisdclemens/master/content/original/'+image
-    urllib.request.urlretrieve(image_url, 'docs/original/images/'+image)
+    try:
+        urllib.request.urlretrieve(image_url, 'docs/original/images/'+image)
+    except:
+        pass
     original_html += """
 <a href="LINK" target="_blank">
 <img src="images/IMAGE">
