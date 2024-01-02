@@ -304,7 +304,7 @@ for tr in trs:
     body = page_soup.find('div', attrs={'class': 'post-body'})
     f = open('original_article.html', 'r')
     html = f.read().replace('[TITLE]', title).replace('[ARTICLE]', str(body))
-    replacements = [(u"\xE2", "'"), (u"\x80", "'"), (u"\x99", "'"), (u'\xE2','"'), (u'\x80','"'), (u'\x9C','"'), (u'\xE2', '"'), (u'\x80', '"'), (u'\x9D', '"'), (u"\xE2", "'"), (u"\x80", "'"), (u"\x98", "'"), (u'\xa0',' ')]
+    replacements = [(u'\x99', "'"), (u'\x9C','"'), (u'\x9D', '"'), (u'\x98', "'"), (u'\xa0',' ')]
     for r in replacements:
         html = html.replace(r[0], r[1])
     html = general_changes(html)
