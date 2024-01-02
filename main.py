@@ -17,7 +17,7 @@ def general_changes(html):
     <a href="/about">About</a>
     </div>
     """
-    return html.replace('[NAV]', NAV_HTML).replace('<!-- Required meta tags -->', '<style>html{visibility: hidden;opacity:0;}</style>')
+    return html.replace('[NAV]', NAV_HTML).replace('<!-- Required meta tags -->', '<style>html{background-color: #303f9f;visibility: hidden;opacity:0;}</style>')
 
 
 csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7eYIZH2_oqrFqg0bTbDhyQTr-VGY2dTG3crlgLXrsf-cDGANWK4rFGAjyWVBIQQyK-mkLVVJaqrnj/pubhtml'
