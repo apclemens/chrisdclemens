@@ -304,7 +304,8 @@ for tr in trs:
     body = page_soup.find('div', attrs={'class': 'post-body'})
     f = open('original_article.html', 'r')
     html = f.read().replace('[TITLE]', title).replace('[ARTICLE]', str(body))
-    replacements = [(8220, '"'), (8221, '"'), (160, ' '), (8217, "'")]
+    replacements = [(8220, '"'), (8221, '"'), (160, ' '), (8217, "'"), (8216, "'")]
+    if url == 'chappelle': a,b=1
     for r in replacements:
         html = html.replace(chr(r[0]), r[1])
     html = general_changes(html)
