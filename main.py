@@ -48,7 +48,7 @@ f = open('index.html', 'r')
 html = f.read()
 f.close()
 f = open('docs/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 
 # comics
