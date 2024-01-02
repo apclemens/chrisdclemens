@@ -320,3 +320,13 @@ display: block;
   opacity: 1;
   border: 1px solid black;
 } 
+
+
+
+
+
+
+html {
+    visibility: visible;
+    opacity: 1;
+}
