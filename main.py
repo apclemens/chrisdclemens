@@ -17,7 +17,7 @@ def general_changes(html):
     <a href="/about">About</a>
     </div>
     """
-    return html.replace('[NAV]', NAV_HTML)
+    return html.replace('[NAV]', NAV_HTML).replace('<!-- Required meta tags -->', '<style>html{visibility: hidden;opacity:0;}</style>')
 
 
 csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7eYIZH2_oqrFqg0bTbDhyQTr-VGY2dTG3crlgLXrsf-cDGANWK4rFGAjyWVBIQQyK-mkLVVJaqrnj/pubhtml'
@@ -304,7 +304,7 @@ for tr in trs:
     body = page_soup.find('div', attrs={'class': 'post-body'})
     f = open('original_article.html', 'r')
     html = f.read().replace('[TITLE]', title).replace('[ARTICLE]', str(body))
-    replacements = [(u"’", "'"), (u'“','"'), (u'”', '"'), (u"‘", "'"), (u'\xa0',' ')]
+    replacements = [(u"Â’", "'"), (u'Â“','"'), (u'Â”', '"'), (u"Â‘", "'"), (u'\xa0',' ')]
     for r in replacements:
         html = html.replace(r[0], r[1])
     html = general_changes(html)
