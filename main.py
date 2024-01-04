@@ -45,7 +45,7 @@ f.write(css)
 f.close()
 
 f = open('index.html', 'r')
-html = f.read()
+html = f.read().replace('<!-- Required meta tags -->', '<style>html{background-color: #c5cae9;visibility: hidden;opacity:0;}</style>')
 f.close()
 f = open('docs/index.html', 'w')
 f.write(general_changes(html))
