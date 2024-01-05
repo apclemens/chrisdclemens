@@ -105,7 +105,7 @@ for i in range(len(comics_info)):
     f.write(general_changes(html))
     f.close()
 f = open('docs/comics/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 f = open('comic_archive.html', 'r')
 html = f.read().replace('[ARCHIVE]', archive_html)
