@@ -17,7 +17,7 @@ def general_changes(html):
     <a href="/about">About</a>
     </div>
     """
-    return html.replace('[NAV]', NAV_HTML).replace('<!-- Required meta tags -->', '<style>html{background-color: #303f9f;visibility: hidden;opacity:0;}</style>')
+    return soup(html.replace('[NAV]', NAV_HTML).replace('<!-- Required meta tags -->', '<style>html{background-color: #303f9f;visibility: hidden;opacity:0;}</style>'), 'html.parser').prettify()
 
 
 csv_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7eYIZH2_oqrFqg0bTbDhyQTr-VGY2dTG3crlgLXrsf-cDGANWK4rFGAjyWVBIQQyK-mkLVVJaqrnj/pubhtml'
@@ -100,21 +100,19 @@ for i in range(len(comics_info)):
         html = html.replace('[NEXT]', comics_info[i+1][3])
     image_html = '<img src="/images/'+comics_info[i][1]+'" class="comic sp-'+comics_info[i][2]+'">'
     html = html.replace('[IMAGE]', image_html).replace('[RANDOM]', '<script src="/assets/random.js"></script>')
-    html = general_changes(html)
     os.mkdir('docs/comics/'+comics_info[i][3])
     f = open('docs/comics/'+comics_info[i][3]+'/index.html', 'w')
-    f.write(html)
+    f.write(general_changes(html))
     f.close()
 f = open('docs/comics/index.html', 'w')
 f.write(html)
 f.close()
 f = open('comic_archive.html', 'r')
 html = f.read().replace('[ARCHIVE]', archive_html)
-html = general_changes(html)
 f.close()
 os.mkdir('docs/comics/archive')
 f = open('docs/comics/archive/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 
 # videos
@@ -134,10 +132,9 @@ for tr in trs:
 f = open('videos.html', 'r')
 html = f.read()
 html = html.replace('[VIDEOS]', videos_html)
-html = general_changes(html)
 f.close()
 f = open('docs/videos/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 
 # drawings
@@ -161,10 +158,9 @@ for tr in trs:
 f = open('drawings.html', 'r')
 html = f.read()
 html = html.replace('[DRAWINGS]', drawings_html)
-html = general_changes(html)
 f.close()
 f = open('docs/drawings/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 
 # commissioned
@@ -253,10 +249,9 @@ function showSlides(n) {
 </script>
         """
     html = html.replace('[FILES]', files_text)
-    html = general_changes(html)
     os.mkdir('docs/commissioned/'+url)
     f = open('docs/commissioned/'+url+'/index.html', 'w')
-    f.write(html)
+    f.write(general_changes(html))
     f.close()
     if i%2 == 0: parity = 'even'
     else: parity = 'odd'
@@ -272,9 +267,8 @@ f = open('commissioned.html', 'r')
 html = f.read()
 f.close()
 html = html.replace('[COMMISSIONED]', commissioned_cards)
-html = general_changes(html)
 f = open('docs/commissioned/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
 
 # original
@@ -318,10 +312,9 @@ for tr in trs:
 
 f = open('original.html', 'r')
 html = f.read()
-html = general_changes(html)
 f.close()
 f = open('docs/original/index.html', 'w')
-f.write(html.replace('[ORIGINAL]', original_html))
+f.write(general_changes(html.replace('[ORIGINAL]', original_html)))
 f.close()
 
 # about
@@ -330,9 +323,8 @@ tr = about.findAll('tr')[-1]
 about_text = tr.findAll('td')[0].text
 f = open('about.html', 'r')
 html = f.read().replace('[ABOUT]', about_text)
-html = general_changes(html)
 f.close()
 os.mkdir('docs/about')
 f = open('docs/about/index.html', 'w')
-f.write(html)
+f.write(general_changes(html))
 f.close()
